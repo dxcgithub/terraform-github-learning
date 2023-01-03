@@ -20,7 +20,7 @@ terraform {
   }
 }
 
-
+/*
 terraform {
   backend "azurerm" {
     storage_account_name = "learnstg2023"
@@ -29,7 +29,7 @@ terraform {
     access_key           = "bWNi1v+r9PEWBoLhQi2vIM077nV9rj1QzLbemEZsgg0ivEt5RoY8SERi9FL5Jde584Ta00tjmZ0u+AStjpFF/g=="
   }
 }
-
+*/
 provider "azurerm" {
   features {}
 
