@@ -1,18 +1,19 @@
-module "vpc" {
-  source = "terraform-aws-modules/vpc/aws"
+#Create Resource Group windows
 
-  name = "my-vpc"
-  cidr = "10.0.0.0/16"
 
-  azs             = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
-  private_subnets = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
-  public_subnets  = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
+resource "azurerm_resource_group" "Terraform-Learn" {
+  name     = "testTC"
+  location = "spaincentral"
 
-  enable_nat_gateway = true
-  enable_vpn_gateway = true
+}
 
-  tags = {
-    Terraform = "true"
-    Environment = "dev"
-  }
+resource "azurerm_virtual_network" "Learn_Terraform_Vnet-TS" {
+
+  name                = "vnet-test"
+  address_space       = ["10.0.0.0/16"]
+  location            = "spaincentral"
+  resource_group_name = azurerm_resource_group.Terraform-Learn.name
+  depends_on = [
+    azurerm_resource_group.Terraform-Learn
+  ]
 }
