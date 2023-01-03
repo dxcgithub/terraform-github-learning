@@ -10,7 +10,7 @@ terraform {
   }
 }
 terraform {
-  /*
+  
   cloud {
     organization = "dxcasturiasterrraform"
 
@@ -19,8 +19,8 @@ terraform {
     }
   }
 }
-*/
-}
+
+
 terraform {
   backend "azurerm" {
     storage_account_name = "learnstg2023"
