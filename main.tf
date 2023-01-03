@@ -1,19 +1,40 @@
-#Create Resource Group windows
+terraform {
 
 
-resource "azurerm_resource_group" "Terraform-Learn" {
-  name     = "testTC"
-  location = "spaincentral"
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=3.0.1"
+    }
 
+  }
+}
+terraform {
+  /*
+  cloud {
+    organization = "dxcasturiasterrraform"
+
+    workspaces {
+      name = "LearnTerraform"
+    }
+  }
+}
+*/
+}
+terraform {
+  backend "azurerm" {
+    storage_account_name = "learnstg2023"
+    container_name       = "learncontainer"
+    key                  = "terraform.tfstate"
+    access_key           = "bWNi1v+r9PEWBoLhQi2vIM077nV9rj1QzLbemEZsgg0ivEt5RoY8SERi9FL5Jde584Ta00tjmZ0u+AStjpFF/g=="
+  }
 }
 
-resource "azurerm_virtual_network" "Learn_Terraform_Vnet-TS" {
+provider "azurerm" {
+  features {}
 
-  name                = "vnet-test"
-  address_space       = ["10.0.0.0/16"]
-  location            = "spaincentral"
-  resource_group_name = azurerm_resource_group.Terraform-Learn.name
-  depends_on = [
-    azurerm_resource_group.Terraform-Learn
-  ]
+  tenant_id       = "93f33571-550f-43cf-b09f-cd331338d086"
+  client_id       = "6a7f253a-e118-49c7-8b76-8ef0675cf825"
+  subscription_id = "6a7f253a-e118-49c7-8b76-8ef0675cf825"
+
 }
