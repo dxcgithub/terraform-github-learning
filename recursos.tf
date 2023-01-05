@@ -1,5 +1,5 @@
 #Create Resource Group windows
-#test
+#test2
 
 resource "azurerm_resource_group" "Terraform-Learn" {
   name     = "testTC"
