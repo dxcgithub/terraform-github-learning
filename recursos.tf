@@ -3,7 +3,7 @@
 
 resource "azurerm_resource_group" "Terraform-Learn" {
   name     = "testTC"
-  location = "spaincentral"
+  location = "westcentralus"
 
 }
 
